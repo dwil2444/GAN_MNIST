@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets("MNIST_data/")
 
-
+# plt.imshow(mnist.train.images[0].reshape(28, 28))
 
 # The generator network
 def generator(z, reuse=None): # z represents random noise used to start the generator
@@ -108,3 +108,4 @@ with tf.Session() as sess:
 # show a generated digit
 for sample in samples:
     plt.imshow(sample.reshape(28, 28))
+    plt.show()

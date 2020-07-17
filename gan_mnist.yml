@@ -1,4 +1,4 @@
-name: cnn
+name: gan_mnist
 channels:
   - defaults
 dependencies:
@@ -134,4 +134,3 @@ dependencies:
     - wrapt==1.12.1
     - zipp==1.2.0
 prefix: /Users/danewilliamson/opt/anaconda3/envs/cnn
-
