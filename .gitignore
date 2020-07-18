@@ -1,1 +1,10 @@
 .ipynb_checkpoints/
+models/
+
+# exclude everything
+gan_output/*
+mnist/*
+
+# exception to the rule
+!gan_output/.gitkeep
+!mnist/.gitkeep 

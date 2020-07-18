@@ -5,7 +5,8 @@ import matplotlib.pyplot as plt
 from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets("MNIST_data/")
 
-# plt.imshow(mnist.train.images[0].reshape(28, 28))
+plt.imshow(mnist.train.images[0].reshape(28, 28))
+plt.savefig('mnist/sample.png', bbox_inches='tight')
 
 # The generator network
 def generator(z, reuse=None): # z represents random noise used to start the generator
@@ -74,10 +75,11 @@ D_trainer = tf.train.AdamOptimizer(learning_rate).minimize(D_loss, var_list=d_va
 G_trainer = tf.train.AdamOptimizer(learning_rate).minimize(G_loss, var_list=g_vars)
 
 batch_size = 100
-epochs = 500
+epochs = 50000
 init = tf.global_variables_initializer()
 samples = []
 
+saver = tf.train.Saver(var_list=g_vars)
 with tf.Session() as sess:
     sess.run(init)
 
@@ -103,9 +105,11 @@ with tf.Session() as sess:
         gen_sample = sess.run(generator(z, reuse=True), feed_dict={z:sample_z})
 
         samples.append(gen_sample)
+    saver.save(sess, './models/digit-GAN')
 
-
-# show a generated digit
+#  save generated images to gan_output folder
+i = 0
 for sample in samples:
-    plt.imshow(sample.reshape(28, 28))
-    plt.show()
+    plt.imshow(sample.reshape(28,28))
+    plt.savefig('gan_output/{}.png'.format(i), bbox_inches='tight')
+    i += 1
