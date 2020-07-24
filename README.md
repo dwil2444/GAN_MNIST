@@ -35,6 +35,7 @@ of the generator.
 
 
 ### Sample Image from MNIST
-![alt text](mnist/sample.png)
+![alt text](https://i.ibb.co/WVvJd1W/sample.png)
 
 ### Sample Output from GAN
+![alt text](https://i.ibb.co/mCVCnzp/4998.png)

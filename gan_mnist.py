@@ -75,7 +75,7 @@ D_trainer = tf.train.AdamOptimizer(learning_rate).minimize(D_loss, var_list=d_va
 G_trainer = tf.train.AdamOptimizer(learning_rate).minimize(G_loss, var_list=g_vars)
 
 batch_size = 100
-epochs = 50000
+epochs = 5000
 init = tf.global_variables_initializer()
 samples = []
 
